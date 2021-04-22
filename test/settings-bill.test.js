@@ -1,32 +1,57 @@
-describe("Testing the bill with widgets factory functions", function () {
-    it("should be able to test the call cost test", function () {
-        var theSmsCost = 0;
-        var theCallCost = 0;
-        var theTotal = 0;
+describe("Bill Settings Factory functions", function () {
 
-        function setCallCost(callCost){
-            return theCallCost = callCost;
 
-        }
 
-        function getCallCost(){
-            return theCallCost;
-        }
 
-        function setSmsCost(SmsCost){
-            return theSmsCost += SmsCost;;
-        }
-        function getSmsCost(){
-            return theSmsCost;
-        }
-        setCallCost(2.75)
-        assert.equal(2.75,getCallCost());
+    it("Should test if the correct ogica is ereturned", function () {
+        let billWithSettingsA = billWithSettings();
+        billWithSettingsA.setCallCost(2.00);
+        assert.equal(2.00, billWithSettingsA.getCallCost())
 
-        return{
-            getCallCost,
-            setCallCost
-        }
+
+
+    });
+    it("Should check if sms caost is returning the correct amountthe correct", function () {
+        let billWithSettingsB = billWithSettings();
+        billWithSettingsB.setSmsCost(1.50);
+        assert.equal(1.50, billWithSettingsB.getSmsCost());
+    });
+
+
+    it("Should check if the total is returning the amount  equal smsCost + callCost", function () {
+        const billWithSettingsC = billWithSettings();
+        billWithSettingsC.setCallCost(3.00);
+        billWithSettingsC.setSmsCost(2.00);
+
+        assert.equal(5.00, billWithSettingsC.getTotal())
+
+
+    });
+
+    it("Checks if the warnLevel is set Ccorrectly", function () {
+        const billWithSettingsD = billWithSettings();
+        billWithSettingsD.setWarnLevel(25);
+        assert.equal(25, billWithSettingsD.getWarnLevel())
+
+
     })
 
-    
-})
+    it("Checks if the warnLevel is set Ccorrectly", function () {
+        const billWithSettingsE = billWithSettings();
+        billWithSettingsE.setCritLevel(45);
+        assert.equal(45, billWithSettingsE.getCritLevel())
+
+    });
+
+    describe("Using the values",function(){
+        it("TBC",function(){
+            var billWithSettingsF = billWithSettings();
+            billWithSettingsF.setCallCost(1)
+            billWithSettingsF.makeCall();
+            billWithSettingsF.makeCall();
+            assert.equal(2,billWithSettingsF.getCallCost())
+
+
+    })
+});
+});
