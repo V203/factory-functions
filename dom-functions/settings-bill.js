@@ -2,110 +2,97 @@
 
 function billWithSettings() {
     var call = 0;
-    var sms = 0;
-    var total = 0;
-    var warnLevel = 0;
-    var critLevel = 0;
-    var smsTotal = 0;
     var callTotal = 0;
 
-    function setCallCost(call_) {
+    var sms = 0;
+    var smsTotal = 0;
+
+    var total = 0;
+
+    var warn = 0;
+    var crit = 0;
+    
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+    function setCall(call_) {
         return call += call_;
+
     }
 
-    function getCallCost() {
+    function getCall() {
         return call;
     }
-    function getCostTotal(){
-        return total = call + sms
+    function getCallTotal(){
+        return call;
+    }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    function setSms(sms_){
+        return sms += sms_
     }
 
-    function setSmsCost(sms_) {
-        sms += sms_;
+    function getSms(){
+        return sms;
     }
-
-    function getSmsCost() {
+    function getSmsTotal(){
         return sms
     }
 
-    function getTotal() {
-        return total = smsTotal + callTotal;
-    }
-    function setWarnLevel(warnLevel_) {
-        return warnLevel += warnLevel_;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    function getTotal(){
+        return total = call + sms;
     }
 
-    function getWarnLevel() {
-        return warnLevel;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    function makeCall(){
+        return call++;
     }
 
-    function setCritLevel(critLevel_) {
-        return critLevel += critLevel_;
-    }
-
-    function getCritLevel() {
-        return critLevel;
-    }
-    function setCallTotal(callTotal_){
-        return callTotal += callTotal_
-    }
-    function setSmsTotal(smsTotal_){
-        return smsTotal += smsTotal_
-    }
-
-    function makeCall() {
-      callTotal += call;      
-    }
     function sendSms(){
-        return smsTotal += sms;
+        sms += sms
     }
 
-    function setTotal(total_){
-        total = total_
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    function setWarn(warn_){
+        return warn += warn_
 
     }
-    function getCallTotal(){
-        return callTotal
+    function getWarn(){
+        return warn
     }
-    function setCallTotal(callTotal_){
-        return callTotal += callTotal_
-    }
-    function getSmsTotal(){
-        return smsTotal
-    }
-    function hasReachedWarn(){
-        return getTotal() >= getWarnLevel()
- 
-    }
-    function hasReachedCrit(){
 
-    }
-   
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    function setCrit(crit_){
+        return crit += crit_;
+    }
+    function getCrit(){
+        return crit;
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     return {
-        setCallCost,
-        getCallCost,
-        setSmsCost,
-        getSmsCost,
-        getTotal,
-        setTotal,
-        setWarnLevel,
-        getWarnLevel,
-        getCritLevel,
-        setCritLevel,
-        makeCall,
-        callTotal,
-        smsTotal,
-        setCallTotal,
-        sendSms,
+        setCall,
+        getCall,
         getCallTotal,
-        getCostTotal,
-        setSmsTotal,
+        setSms,
+        getSms,
         getSmsTotal,
-        hasReachedCrit,
-        hasReachedWarn
-        
-                
+        getTotal,
+        makeCall,
+        sendSms,
+        setWarn,
+        getWarn,
+        setCrit,
+        getCrit
+
+
+
     }
+
+
 
 }
