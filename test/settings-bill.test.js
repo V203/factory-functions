@@ -55,6 +55,8 @@ describe("Bill with settings: using the functions.", function () {
     var billSetF = billWithSettings();
 
     it("The makeCall functions should be equal to 2.04 @ 1.02 per call.", function () {
+        billSetF.setCrit(10)
+        billSetF.setWarn(5)
         billSetF.setCall(1.02)
         billSetF.makeCall();
         billSetF.makeCall();
@@ -71,6 +73,8 @@ describe("Bill with settings: using the functions.", function () {
     })
     it("Should test  if makeCall and sendCall added together are equal to callSmsTotal.", function () {
         var billSetG = billWithSettings();
+        billSetG.setWarn(10);
+        billSetG.setCrit(5);
         billSetG.setCall(1.50);
         billSetG.setSms(0.50);
         billSetG.makeCall();
@@ -82,15 +86,59 @@ describe("Bill with settings: using the functions.", function () {
 });
 
 describe("Bill with settings: setting the warning and critical levels.", function () {
-    var billSetH = billWithSettings();
-    it("Should be able to set the warning level to 20",function(){
-        billSetH.setWarn(20);
+    
+    it("Should be able to set the warning level to 5 and return 'warning' if equal to or greater than warning level.",function(){
+        var billSetH = billWithSettings();
+        billSetH.setWarn(1.50)
+        billSetH.setCrit(6);
+        billSetH.setSms(0.51)
+        billSetH.makeCall()
+        billSetH.makeCall()
+        billSetH.makeCall()
+        billSetH.makeCall()
 
-        assert.equal(20,billSetH.getWarn())
+
+        assert.equal("warning",billSetH.totalClassName());
     })
-    it("Should be able to set the critical level to 40",function(){
-        billSetH.setCrit(40);
+    
+    it("Should be able to set the critical level to 10 and return 'critical' if equal to or greater than critical level.",function(){
+        let billSetJ = billWithSettings();
+        billSetJ.setCrit(10);
+        billSetJ.setWarn(5);
 
-        assert.equal(40,billSetH.getCrit())
+        billSetJ.setSms(0.51);
+        billSetJ.setCall(2.00);
+
+        billSetJ.makeCall();
+        billSetJ.makeCall();
+        billSetJ.makeCall();
+        billSetJ.makeCall();
+        billSetJ.sendSms();
+        billSetJ.sendSms();
+        billSetJ.sendSms();
+        billSetJ.sendSms();
+
+        assert.equal("critical",billSetJ.totalClassName());
+        
+    });
+
+    it("Should be able to stop the total call cost from increasing once the critical has been met.",function(){
+        let billSet = billWithSettings();
+
+        billSet.setCrit(10);
+        billSet.setWarn(5);
+        billSet.setCall(2.50);
+        billSet.setSms(0.75);
+
+        billSet.makeCall();
+        billSet.makeCall();
+        billSet.makeCall();
+        billSet.sendSms();
+        billSet.sendSms();
+        billSet.sendSms();
+        billSet.sendSms();
+
+        assert.equal(10.50,billSet.getCallSmsTotal());
+
     })
 });
