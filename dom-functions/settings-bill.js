@@ -8,6 +8,7 @@ function billWithSettings() {
     var smsTotal = 0;
 
     var total = 0;
+    var CallSmsTotal = 0;
 
     var warn = 0;
     var crit = 0;
@@ -23,7 +24,7 @@ function billWithSettings() {
         return call;
     }
     function getCallTotal(){
-        return call;
+        return callTotal;
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -35,7 +36,7 @@ function billWithSettings() {
         return sms;
     }
     function getSmsTotal(){
-        return sms
+        return smsTotal
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,13 +45,17 @@ function billWithSettings() {
         return total = call + sms;
     }
 
+    function getCallSmsTotal(){
+        return CallSmsTotal = callTotal + smsTotal;
+    }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     function makeCall(){
-        return call++;
+        return callTotal += call;
     }
 
     function sendSms(){
-        sms += sms
+      return  smsTotal += sms
     }
 
 
@@ -82,6 +87,7 @@ function billWithSettings() {
         getSms,
         getSmsTotal,
         getTotal,
+        getCallSmsTotal,
         makeCall,
         sendSms,
         setWarn,
