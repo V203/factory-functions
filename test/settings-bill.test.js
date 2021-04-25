@@ -1,3 +1,5 @@
+describe("Bill with Settings factory functions",function(){
+
 describe("Bill with settings: setting the functions.", function () {
     var billSetA = billWithSettings();
     it("Should test if call set twice at 2.50 is equal to 5.00.", function () {
@@ -87,15 +89,17 @@ describe("Bill with settings: using the functions.", function () {
 
 describe("Bill with settings: setting the warning and critical levels.", function () {
     
-    it("Should be able to set the warning level to 5 and return 'warning' if equal to or greater than warning level.",function(){
+    it("Should be able to set the warning level to 1.5 and return 'warning' if equal to or greater than warning level.",function(){
         var billSetH = billWithSettings();
         billSetH.setWarn(1.50)
         billSetH.setCrit(6);
-        billSetH.setSms(0.51)
-        billSetH.makeCall()
-        billSetH.makeCall()
-        billSetH.makeCall()
-        billSetH.makeCall()
+        billSetH.setSms(0.51);
+        billSetH.setCall(1.50)
+        billSetH.sendSms();
+        billSetH.sendSms();
+        billSetH.sendSms();
+        billSetH.sendSms();
+   
 
 
         assert.equal("warning",billSetH.totalClassName());
@@ -125,20 +129,27 @@ describe("Bill with settings: setting the warning and critical levels.", functio
     it("Should be able to stop the total call cost from increasing once the critical has been met.",function(){
         let billSet = billWithSettings();
 
-        billSet.setCrit(10);
+        
         billSet.setWarn(5);
         billSet.setCall(2.50);
         billSet.setSms(0.75);
+        billSet.setCrit(10);
 
         billSet.makeCall();
         billSet.makeCall();
         billSet.makeCall();
+        billSet.sendSms();
+        billSet.sendSms();
+        billSet.sendSms();
         billSet.sendSms();
         billSet.sendSms();
         billSet.sendSms();
         billSet.sendSms();
 
         assert.equal(10.50,billSet.getCallSmsTotal());
+        assert.equal(10.50,billSet.getCallSmsTotal());
 
     })
 });
+
+})
