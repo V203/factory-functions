@@ -1,6 +1,6 @@
 describe("Radio bill factory functions", function () {
     describe("Testing the values", function () {
-        
+
         it("Should ttest if the value of call is equal to 2.75", function () {
             let radio_bill = radiobill();
             radio_bill.checked("call");
