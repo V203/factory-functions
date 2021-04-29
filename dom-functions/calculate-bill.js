@@ -1,29 +1,30 @@
 function calculateBill() {
 
-    var total = 0;
     var warn = 20;
     var crit = 30;
-    var total = 0 ;
+    var call = 2.75;
+    var sms = 0.75;
+    var total = 0;
 
-    function getCrit(){
+    function getCrit() {
         return crit
     }
-    function getWarn(){
+    function getWarn() {
         return warn;
     }
-    function getTotal(){
+    function getTotal() {
         return total;
     }
 
-    function totalClassName(){
-         
-        if(getCrit() <= getTotal()){
-            return "critical"
+    function totalClassName() {
+
+        if (getCrit() <= getTotal()) {
+            return "danger"
         }
-        else if(getWarn() <= getTotal()){
+        else if (getWarn() <= getTotal()) {
             return "warning"
         }
-        
+
     }
 
     function calculate(str__) {
@@ -36,8 +37,12 @@ function calculateBill() {
             else if (billString === "sms") {
                 total += 0.75;
             }
-        } 
-        return total 
+            
+            
+
+
+        }
+        return total;
     }
 
 
