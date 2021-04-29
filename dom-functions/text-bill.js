@@ -9,21 +9,23 @@
     var warn = 30;
     var crit = 50;
 
-    // var totalClassName = 0;
-
-    function makeCall() {
-        
-       return callTot += call;
-        
-    }
+    
 
     function getCall(){
             return callTot;
     }
+    function add(_){
+        if(_ == "call"){
+            return callTot += call;
 
-    function sendSms() {
-    return smsTot += sms;        
+        }
+        else if(_ == "sms"){
+            return smsTot += sms;
+
+        }
+
     }
+    
     function getSms(){
         return smsTot;
     }
@@ -53,9 +55,8 @@
 
     return{
         getCall,
-        makeCall,
         getSms,
-        sendSms,
+        add,
         smsCallTotal,
         getWarn,
         setCrit,
