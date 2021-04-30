@@ -41,7 +41,7 @@ describe("Calculate bill factory functions",function(){
             let calc_ = calculateBill();
             var above_30 = "sms,call,sms,sms,call,sms,call,sms,sms,call,sms,sms,call,sms,call,call,call,call"
             assert.equal(31.50,calc_.calculate(above_30))
-            assert.equal("critical",calc_.totalClassName())
+            assert.equal("danger",calc_.totalClassName())
         });
     });
 

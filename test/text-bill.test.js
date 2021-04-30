@@ -48,7 +48,7 @@ describe("Text Bill factory functions", function () {
             assert.equal(63.00, billtext.smsCallTotal());
             assert.equal(13.50, billtext.getSms());
 
-            assert.equal("critical", billtext.totalClassName())
+            assert.equal("danger", billtext.totalClassName())
 
         })
 

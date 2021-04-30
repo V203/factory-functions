@@ -18,7 +18,7 @@ function calculateBill() {
     function totalClassName(){
          
         if(getCrit() <= getTotal()){
-            return "critical"
+            return "danger"
         }
         else if(getWarn() <= getTotal()){
             return "warning"
