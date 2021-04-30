@@ -42,7 +42,7 @@ function calculateBill() {
 
 
         }
-        return total;
+        return total.toFixed(2);
     }
 
 

@@ -84,7 +84,7 @@ describe("Radio bill factory functions", function () {
             assert.equal(11.25, radio_bill.getSmsTot());
             assert.equal(41.25, radio_bill.getCallTot());
             assert.equal(52.50, radio_bill.callSmsTot());
-            assert.equal("critical", radio_bill.totalClassName())
+            assert.equal("danger", radio_bill.totalClassName())
         })
     });
 })
