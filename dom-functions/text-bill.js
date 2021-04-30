@@ -6,6 +6,7 @@ function textbill() {
     var callTot = 0;
     var smsCallTot = 0;
 
+function textbill() {
     var warn = 30;
     var crit = 50;
 
@@ -105,4 +106,6 @@ function textbill() {
         getCrit,
         totalClassName
     }
+}
+
 }
