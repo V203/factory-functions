@@ -38,6 +38,14 @@ function billWithSettings() {
     function getSmsTotal() {
         return smsTotal
     }
+    function togLevel(){
+        if (total >= warnLevel) {
+            totalSettings.classList.add("warning")
+        }
+        if (total >= critLevel) {
+            totalSettings.classList.remove("danger")
+        }
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -121,7 +129,8 @@ function billWithSettings() {
         setCrit,
         getCrit,
         totalClassName,
-        hasReachedCriticalLevel
+        hasReachedCriticalLevel,
+        togLevel
 
 
 

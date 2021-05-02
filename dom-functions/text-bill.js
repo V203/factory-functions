@@ -1,111 +1,105 @@
-function textbill() {
-    var sms = 0.75;
-    var smsTot = 0;
-
-    var call = 2.75;
-    var callTot = 0;
-    var smsCallTot = 0;
-
-function textbill() {
-    var warn = 30;
-    var crit = 50;
 
 
+    {
+    let smsTotTb = 0;
+    let callTotTb = 0;
 
-    function getCall() {
-        return callTot;
-    }
-    function get_call(){
-        return call;
-    }
-
-
-    
-       
-            // total_ = call_ + sms_
-           
-            // if (total_ >= 50) {
-            //     totalOne.classList.add("danger")
-            // } else if (total_ >= 30) {
-            //     totalOne.classList.add("warning")
-            // }
-   
-
-
-    // function add(par1) {
+    function textbill() {
+        // let sms = 0.75;    
+        // let call = 2.75;
         
-    //     if (par1 == "call") {
-    //         return callTot += call;
-
-    //     }
-    //     else if (par1 == "sms") {
-    //         return smsTot += sms;
-
-    //     }
-    //     return smsTot,callTot;
-        
-    // }
-
-    function getSms() {
-        return smsTot;
-    }
-    function get_sms(){
-        return sms
-    }
-
-    function smsCallTotal() {
-        return smsCallTot = callTot + smsTot
-
-    }
-
-    function getWarn() {
-        return warn
-    }
-    function setCrit(crit_) {
-        return crit += crit_;
-    }
-    function getCrit() {
-        return crit;
-    }
-
-
-    function totalClassName() {
-        if (smsCallTotal() >= getCrit()) {
-            return "danger"
+        function addTb(x) {
+            if (x == "call") {
+                addCall()
+                // return callTotTb
+            }
+            else if (x == "sms") {
+                addSms()
+            }
+            addCallSms();
+            // smsCallTotalTb();
+            //return smsCallTotalTb()
         }
-        else if (smsCallTotal() >= getWarn()) {
-            return "warning"
+
+
+
+        let warn = 30;
+        let crit = 50;
+
+
+        // var smsCallTotTb = smsTotTb + callTotTb
+
+        function getCall() {
+            return callTotTb.toFixed(2);
         }
+        function get_call() {
+            return call.toFixed(2);
+        }
+
+        {
+            function getSms() {
+                return smsTotTb.toFixed(2);
+            }
+            function get_sms() {
+                return sms.toFixed(2);
+            }
+
+            function smsCallTotalTb() {
+
+                return smsCallTotTb = smsTotTb + callTotTb;
+
+            }
+
+            function getWarn() {
+                return warn
+            }
+            function setCrit(crit_) {
+                return crit += crit_;
+            }
+            function getCrit() {
+                return crit;
+            }
+
+
+            function totalClassName() {
+                if (smsCallTotalTb() >= getCrit()) {
+                    return "danger"
+                }
+                else if (smsCallTotalTb() >= getWarn()) {
+                    return "warning"
+                }
+            }
+
+            function addCall() {
+                return callTotTb += 2.75
+            }
+            function addSms() {
+                return smsTotTb += 0.75
+            }
+            function addCallSms(){
+                return smsTotTb + callTotTb
+            }
+
+
+
+
+
+            return {
+                getCall,
+                get_call,
+                getSms,
+                get_sms,
+                addTb,
+                addCall,
+                addSms,
+                addCallSms,
+                smsCallTotalTb,
+                getWarn,
+                setCrit,
+                getCrit,
+                totalClassName
+            }
+        }
+
     }
-    function add(x) {
-       
-
-             if (x === "call") {
-                 callTot += call
-                 
-             }
-             else if (x=== "sms") {
-                 smsTot += sms
-                 
-             }
-        
-             smsCallTotal()
-            
-             
-         }
-
-    return {
-        getCall,
-        get_call,
-        getSms,
-        get_sms,
-        add,
-        smsCallTotal,
-        getWarn,
-        setCrit,
-        getCrit,
-        totalClassName
-    }
-}
-
 }

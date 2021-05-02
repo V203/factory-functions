@@ -1,71 +1,84 @@
 
+{
 
 
+    let callTot = 0;
+    let smsTot = 0;
+
+    let call_smsTot = 0;
+    let sms = 0.75;
+    let call = 2.75;
+    let warn = 30;
+    let crit = 50;
 
 
+    function radiobill() {
 
-var warn = 30;
-var crit = 50;
+       
 
 
-var callTot = 0;
-var smsTot = 0;
-var sms = 0.75;
-var call = 2.75;
-var call_smsTot =0 ;
+        function checked(value) {
+           
 
-function radiobill() {
+            if (value === "call") {
+                addCall()
+            }
+            else if (value === "sms") {
 
-    function checked(value) {
-        if (value === "call") {
-            callTot += call   
-        } 
-        else if (value === "sms") {
-            smsTot += sms
+                addSms()
+            }
+            // call_smsTot = smsTot + callTot;
         }
-        return call_smsTot = smsTot+callTot;
-    }
-    function getSmsTot() {
-        return smsTot.toFixed(2);
-    }
-    function getCallTot() {
-        return callTot.toFixed(2);
-    }
-    function getWarn() {
-        return warn;
-    }
-    function getCrit() {
-        return crit;
-    }
-    function callSmsTot() {
-        return call_smsTot.toFixed(2);
-    }
-
-    function totalClassName() {
-        if (callSmsTot() >= getCrit()) {
-            return "danger"
+        function getSmsTot() {
+            return smsTot.toFixed(2);
         }
-        else if (callSmsTot() >= getWarn()) {
-            return "warning"
+        function getCallTot() {
+            return callTot.toFixed(2);
         }
-    }
-    function setCall() {
-        return call;
-    }
-    function setSms() {
-        return sms;
-    }
+        function getWarn() {
+            return warn;
+        }
+        function getCrit() {
+            return crit;
+        }
+        function callSmsTot() {
+            return call_smsTot =callTot + smsTot
+        }
 
-    return {
-        setSms,
-        getSmsTot,
-        setCall,
-        getCallTot,
-        getWarn,
-        getCrit,
-        callSmsTot,
-        checked,
-        totalClassName,
+        function totalClassName() {
+            if (callSmsTot() >= getCrit()) {
+                return "danger"
+            }
+            else if (callSmsTot() >= getWarn()) {
+                return "warning"
+            }
+        }
+        function setCall() {
+            return call;
+        }
+        function setSms() {
+            return sms;
+        } function addCall() {
+            return callTot += call
+        }
+        function addSms() {
+            return smsTot += sms
+        }
 
+
+        return {
+            setSms,
+            getSmsTot,
+            setCall,
+            getCallTot,
+            addCall,
+            addSms,
+            getWarn,
+            getCrit,
+            callSmsTot,
+            checked,
+            totalClassName,
+
+        }
     }
 }
