@@ -4,15 +4,15 @@
 
 
 
-var warn = 30;
-var crit = 50;
+let warn = 30;
+let crit = 50;
 
 
-var callTot = 0;
-var smsTot = 0;
-var sms = 0.75;
-var call = 2.75;
-var call_smsTot =0 ;
+let callTot = 0;
+let smsTot = 0;
+let sms = 0.75;
+let call = 2.75;
+let call_smsTot =0 ;
 
 function radiobill() {
 

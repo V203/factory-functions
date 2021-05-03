@@ -1,14 +1,14 @@
 {
-var sms = 0.75;
-var callTot = 0;
-var smsTot = 0;
-var call = 2.75;
-var smsCallTot ;
-
+let sms = 0.75;
+let callTot = 0;
+let smsTot = 0;
+let call = 2.75;
+let smsCallTot ;
+let warn = 30;
+let crit = 50;
 
 function textbill() {
-    var warn = 30;
-    var crit = 50;
+   
 
     function get_Call() {
         return call;
@@ -18,7 +18,7 @@ function textbill() {
     }
 
     function getCall() {
-        return callTot;
+        return callTot.toFixed(2);
     }
     //////////////////////////////////////////////////////////////////////////////////
     function _add(value) {
@@ -36,12 +36,12 @@ function textbill() {
     ///////////////////////////////////////////////////////////////////////////////////////////
 
     function getSms() {
-        return smsTot;
+        return smsTot.toFixed(2);
     }
 
     function smsCallTotal() {
-        return callTot + smsTot
-
+         smsCallTot= callTot + smsTot
+         return smsCallTot.toFixed(2)
     }
 
     function getWarn() {
