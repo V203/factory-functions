@@ -2,23 +2,23 @@
 {
 
 
-    let callTot = 0;
-    let smsTot = 0;
 
-    let call_smsTot = 0;
-    let sms = 0.75;
-    let call = 2.75;
-    let warn = 30;
-    let crit = 50;
 
 
     function radiobill() {
+        let smsTot = 0;
 
-       
+        let call_smsTot = 0;
+        let sms = 0.75;
+        let call = 2.75;
+        let warn = 30;
+        let crit = 50;
+        let callTot = 0;
+
 
 
         function checked(value) {
-           
+
 
             if (value === "call") {
                 addCall()
@@ -33,7 +33,7 @@
             return smsTot.toFixed(2);
         }
         function getCallTot() {
-            return callTot.toFixed(2);
+            return callTot.toFixed(2)
         }
         function getWarn() {
             return warn;
@@ -42,7 +42,7 @@
             return crit;
         }
         function callSmsTot() {
-            return call_smsTot =callTot + smsTot
+            return call_smsTot = callTot + smsTot
         }
 
         function totalClassName() {

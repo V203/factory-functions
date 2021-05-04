@@ -1,36 +1,38 @@
 
 
     {
-    let smsTotTb = 0;
-    let callTotTb = 0;
 
     function textbill() {
-        // let sms = 0.75;    
-        // let call = 2.75;
+        let sms = 0.75;    
+        let call = 2.75;
+        let smsTotTb = 0;
+        let callTot = 0;
+        let warn = 30;
+        let crit = 50;
+    
         
-        function addTb(x) {
+        function add(x) {
             if (x == "call") {
                 addCall()
-                // return callTotTb
+                // return callTot
             }
             else if (x == "sms") {
                 addSms()
             }
             addCallSms();
-            // smsCallTotalTb();
-            //return smsCallTotalTb()
+            // smsCallTotal();
+            //return smsCallTotal()
         }
 
 
 
-        let warn = 30;
-        let crit = 50;
+        
 
 
-        // var smsCallTotTb = smsTotTb + callTotTb
+        // var smsCallTotTb = smsTotTb + callTot
 
         function getCall() {
-            return callTotTb.toFixed(2);
+            return callTot.toFixed(2);
         }
         function get_call() {
             return call.toFixed(2);
@@ -44,9 +46,10 @@
                 return sms.toFixed(2);
             }
 
-            function smsCallTotalTb() {
+            function smsCallTotal() {
 
-                return smsCallTotTb = smsTotTb + callTotTb;
+                 smsCallTotTb = smsTotTb + callTot;
+                 return smsCallTotTb.toFixed(2)
 
             }
 
@@ -62,22 +65,22 @@
 
 
             function totalClassName() {
-                if (smsCallTotalTb() >= getCrit()) {
+                if (smsCallTotal() >= getCrit()) {
                     return "danger"
                 }
-                else if (smsCallTotalTb() >= getWarn()) {
+                else if (smsCallTotal() >= getWarn()) {
                     return "warning"
                 }
             }
 
             function addCall() {
-                return callTotTb += 2.75
+                return callTot += 2.75
             }
             function addSms() {
                 return smsTotTb += 0.75
             }
             function addCallSms(){
-                return smsTotTb + callTotTb
+                return smsTotTb + callTot
             }
 
 
@@ -89,11 +92,11 @@
                 get_call,
                 getSms,
                 get_sms,
-                addTb,
+                add,
                 addCall,
                 addSms,
                 addCallSms,
-                smsCallTotalTb,
+                smsCallTotal,
                 getWarn,
                 setCrit,
                 getCrit,

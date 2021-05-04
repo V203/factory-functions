@@ -16,7 +16,7 @@ function billWithSettings() {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
     function setCall(call_) {
-        return call += call_;
+        return call = call_;
 
     }
 
@@ -29,7 +29,7 @@ function billWithSettings() {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     function setSms(sms_) {
-        return sms += sms_
+        return sms = sms_
     }
 
     function getSms() {
@@ -96,7 +96,7 @@ function billWithSettings() {
 
     function totalClassName() {
         if (hasReachedCriticalLevel()) {
-            return "critical";
+            return "danger";
         }
         
         if (getCallSmsTotal() >= getWarn()) {
