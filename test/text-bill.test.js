@@ -1,35 +1,35 @@
 describe("Text Bill factory functions", function () {
     describe("Testing the values of the text bill factory functions ", function () {
         it("The add function with parameter of 'sms' should equal 0.75", function () {
-            let billtextA = textbill();
-            billtextA.add("sms")
-            assert.equal(0.75,billtextA.getSms() )
+            let billtext = textbill();
+            billtext.add("sms")
+            assert.equal(0.75,billtext.getSms() )
         })
         it("The add function with parameter of 'call' should equal 2.75", function () {
-            let billtextB = textbill();
-            billtextB.add("call")
-            assert.equal(2.75, billtextB.getCall())
+            let billtext = textbill();
+            billtext.add("call")
+            assert.equal(2.75, billtext.getCall())
         })
         it("Call and sms added together should equal the expected total 3.50", function () {
-            let billtextC = textbill();
-            billtextC.add("call");
-            billtextC.add("sms");
-            assert.equal(3.50, billtextC.smsCallTotal())
+            let billtext = textbill();
+            billtext.add("call");
+            billtext.add("sms");
+            assert.equal(3.50, billtext.smsCallTotal())
         })
         
         it("The warning level should be 30.00", function () {
-            let billtextD = textbill();
-            billtextD.add("call");
-            assert.equal(2.75, billtextD.smsCallTotal())
-            assert.equal(30, billtextD.getWarn())
+            let billtext = textbill();
+            billtext.add("call");
+            assert.equal(2.75, billtext.smsCallTotal())
+            assert.equal(30, billtext.getWarn())
         });
 
         it("The critical level should be 50.00", function () {
-            let billtextE = textbill();
-            billtextE.add("call");
-            billtextE.add("call")
-            assert.equal(50, billtextE.getCrit())
-            assert.equal(5.50, billtextE.getCall())
+            let billtext = textbill();
+            billtext.add("call");
+            billtext.add("call")
+            assert.equal(50, billtext.getCrit())
+            assert.equal(5.50, billtext.getCall())
         });
 
     })

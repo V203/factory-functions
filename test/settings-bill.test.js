@@ -63,7 +63,7 @@ describe("Bill with Settings factory functions", function () {
 
             assert.equal(2.40, billSet.getCallTotal());
             assert.equal(1.02, billSet.getSmsTotal());
-            assert.equal(3.42, billSet.getCallSmsTotal());
+            
 
         })
 

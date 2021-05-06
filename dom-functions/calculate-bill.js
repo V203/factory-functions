@@ -1,10 +1,10 @@
 function calculateBill() {
 
-    var warn = 20;
-    var crit = 30;
-    var call = 2.75;
-    var sms = 0.75;
-    var total = 0;
+    let warn = 20;
+    let crit = 30;
+    let call = 2.75;
+    let sms = 0.75;
+    let total = 0;
 
     function getCrit() {
         return crit
@@ -28,9 +28,9 @@ function calculateBill() {
     }
 
     function calculate(str__) {
-        var str = str__.split(",");
-        for (var i = 0; i < str.length; i++) {
-            var billString = str[i].trim();
+        let str = str__.split(",");
+        for (let i = 0; i < str.length; i++) {
+            let billString = str[i].trim();
             if (billString === "call") {
                 total += 2.75;
             }

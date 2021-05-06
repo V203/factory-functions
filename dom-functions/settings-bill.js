@@ -1,17 +1,17 @@
 
 
 function billWithSettings() {
-    var call = 0;
-    var callTotal = 0;
+    let call = 0;
+    let callTotal = 0;
 
-    var sms = 0;
-    var smsTotal = 0;
+    let sms = 0;
+    let smsTotal = 0;
 
-    var total = 0;
-    var CallSmsTotal = 0;
+    let total = 0;
+    let callSmsTotal = 0;
 
-    var warn = 0;
-    var crit = 0;
+    let warn = 0;
+    let crit = 0;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
@@ -24,7 +24,7 @@ function billWithSettings() {
         return call;
     }
     function getCallTotal() {
-        return callTotal;
+        return callTotal.toFixed(2);
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -32,13 +32,19 @@ function billWithSettings() {
         return sms = sms_
     }
 
+
     function getSms() {
         return sms;
     }
+
+
     function getSmsTotal() {
-        return smsTotal
+        return smsTotal.toFixed(2)
     }
-    function togLevel(){
+
+
+
+    function togLevel() {
         if (total >= warnLevel) {
             totalSettings.classList.add("warning")
         }
@@ -54,29 +60,30 @@ function billWithSettings() {
     }
 
     function getCallSmsTotal() {
-        return CallSmsTotal = callTotal + smsTotal;
+         callSmsTotal = smsTotal+callTotal ;
+         return callSmsTotal.toFixed(2)
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     function makeCall() {
-        if(!hasReachedCriticalLevel()){
-            return callTotal += call;
+        if (!hasReachedCriticalLevel()) {
+          return  callTotal += call;
         }
-        
-    }
 
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     function sendSms() {
-        if(!hasReachedCriticalLevel()){
-            return smsTotal += sms
+        if (!hasReachedCriticalLevel()) {
+            return   smsTotal += sms
         }
-        
+
     }
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     function setWarn(warn_) {
-        return warn += warn_
+        return warn = warn_
 
     }
     function getWarn() {
@@ -86,7 +93,7 @@ function billWithSettings() {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     function setCrit(crit_) {
-        return crit += crit_;
+        return crit = crit_;
     }
     function getCrit() {
         return crit;
@@ -98,21 +105,34 @@ function billWithSettings() {
         if (hasReachedCriticalLevel()) {
             return "danger";
         }
-        
         if (getCallSmsTotal() >= getWarn()) {
             return "warning";
         }
-        
-        
-        
     }
- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    function hasReachedCriticalLevel(){
+    function hasReachedCriticalLevel() {
         return getCallSmsTotal() >= getCrit();
     }
 
- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    function calc(value) {
+        if (value === "call") {
+           return makeCall();
+        }
+        else if (value === "sms") {
+          return  sendSms();
+
+        }
+        callSmsTotal = smsTotal+ callTotal
+       return callSmsTotal.toFixed(2)
+    }
+
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     return {
         setCall,
         getCall,
@@ -130,7 +150,8 @@ function billWithSettings() {
         getCrit,
         totalClassName,
         hasReachedCriticalLevel,
-        togLevel
+        togLevel,
+        calc
 
 
 

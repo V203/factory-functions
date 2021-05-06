@@ -42,7 +42,8 @@
             return crit;
         }
         function callSmsTot() {
-            return call_smsTot = callTot + smsTot
+             call_smsTot = callTot + smsTot;
+            return call_smsTot.toFixed(2)
         }
 
         function totalClassName() {

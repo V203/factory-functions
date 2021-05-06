@@ -21,9 +21,9 @@ describe("Calculate bill factory functions",function(){
             
             assert.equal(14.00,calc.calculate(" sms  , call , sms, call, sms  , call , sms, call"))
         })
-        it("The test should pass by taking in a varible that holds a string",function(){
+        it("The test should pass by taking in a letible that holds a string",function(){
             let calc = calculateBill();
-            var _str_ = "sms,call,sms,call,sms,sms,call,sms,call,sms"
+            let _str_ = "sms,call,sms,call,sms,sms,call,sms,call,sms"
             assert.equal(15.50,calc.calculate(_str_))
         })
     })
@@ -32,14 +32,14 @@ describe("Calculate bill factory functions",function(){
         
         it("Should return warning once total is above 20 ", function(){
             let calc_ = calculateBill();
-            var above_20 = "sms,call,sms,sms,call,sms,call,sms,sms,call,sms,sms,call,sms"
+            let above_20 = "sms,call,sms,sms,call,sms,call,sms,sms,call,sms,sms,call,sms"
             assert.equal(20.50,calc_.calculate(above_20))
             assert.equal("warning",calc_.totalClassName())
         });
 
         it("Should return critical once total is above 30 ", function(){
             let calc_ = calculateBill();
-            var above_30 = "sms,call,sms,sms,call,sms,call,sms,sms,call,sms,sms,call,sms,call,call,call,call"
+            let above_30 = "sms,call,sms,sms,call,sms,call,sms,sms,call,sms,sms,call,sms,call,call,call,call"
             assert.equal(31.50,calc_.calculate(above_30))
             assert.equal("danger",calc_.totalClassName())
         });
